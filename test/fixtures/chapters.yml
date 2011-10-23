@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  enabled: false
+  chapter_title: MyString
+  chapter_number: 1
+  resume: MyText
+  subject: 
+
+two:
+  enabled: false
+  chapter_title: MyString
+  chapter_number: 1
+  resume: MyText
+  subject: 

@@ -1,0 +1,26 @@
+<%- # Javascript at the bottom for fast page loading -%>
+
+<%= javascript_include_tag :application %>
+
+<%= yield :javascripts %>
+
+<%- # Fix any <img> or .png_bg background-images -%>
+<!--[if lt IE 7 ]>
+<%= javascript_include_tag 'dd_belatedpng.js' %>
+<%= javascript_tag %{DD_belatedPNG.fix('img, .png_bg')} %>
+<![endif]-->
+
+<%- # asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet -%>
+<%- # change the UA-XXXXX-X to be your site's ID -%>
+<%- if Rails.env.production? -%>
+  <!-- <script> -->
+  <!--   var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']]; -->
+  <!--   (function(d, t) { -->
+  <!--   var g = d.createElement(t), -->
+  <!--   s = d.getElementsByTagName(t)[0]; -->
+  <!--   g.async = true; -->
+  <!--   g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; -->
+  <!--   s.parentNode.insertBefore(g, s); -->
+  <!--   })(document, 'script'); -->
+  <!-- </script> -->
+<%- end -%>

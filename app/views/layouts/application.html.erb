@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%= render :partial => 'layouts/head' %>
+  </head>
+  <body>
+    <nav>
+      <%= render :partial => 'layouts/menu' %>
+    </nav>
+    
+    <header class="masthead">
+      <!-- <div class="inner"> -->
+      <!-- 	<div class="container"> -->
+      <!-- 	  Eschool -->
+      <!-- 	</div>	 -->
+      <!-- </div> -->
+    </header>
+    
+    <div class="container main">
+      <%= yield %>
+    </div>
+    
+    <footer class="footer">
+      <div class="container">
+	<%= render :partial => 'layouts/footer' %>
+      </div>
+    </footer>
+        
+    <%= render :partial => 'layouts/javascript' %>
+  </body>
+</html>

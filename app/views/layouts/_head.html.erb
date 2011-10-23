@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<%- # Mobile viewport optimized: j.mp/bplateviewport -%>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WebLab :: <%= controller.action_name.titleize %></title>
+
+<%# CSS : implied media="all" -%>
+<%= stylesheet_link_tag 'application' %>
+<%= yield :stylesheets %>
+
+<%- # Uncomment if you are specifically targeting less enabled mobile browsers -%>
+<%#= stylesheet_link_tag "handheld", :media => "handheld" %>
+
+<%= csrf_meta_tag %>
+<%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+
