@@ -28,7 +28,7 @@ class SubjectsController < ApplicationController
 
     3.times do
       chapter = @subject.chapters.build
-      4.times { 
+      2.times { 
         chapter.sections.build
       }
     end

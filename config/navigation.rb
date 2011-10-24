@@ -53,6 +53,7 @@ SimpleNavigation::Configuration.run do |navigation|
     # Add an item which has a sub navigation (same params, but with block)
     primary.dom_class = 'nav'
     primary.item :home, t('Home'), root_path
+    primary.item :admin, t('Manage lessons'), subjects_path
     
     #primary.item :contact, t('Contact'),
 

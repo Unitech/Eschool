@@ -1,5 +1,7 @@
 /* Customized */
 
+@import 'functions';
+
 header { padding-top : 50px; }
 footer { 
 background-color: #EEE;
@@ -18,3 +20,59 @@ background-color : #EEE; height : 80px;
     min-height : 400px;
 }
 
+#chapters-expand, .sections-expand {
+    width : 150px !important;
+    text-align : center;
+    /* @include rounded(5px); */
+    /* height : 30px; */
+    /* background-color : #CCC; */
+    /* padding : 0 0 0 20px; */
+    /* line-height : 30px; */
+    /* font-size : 17px; */
+    
+    /* &:hover { */
+    /* 	background-color :  */
+    /* } */
+}
+
+.chapters {
+    margin-left : 100px;
+    padding-top : 20px;
+    width : 500px;
+    display : none;
+    .chapter-each-display {
+	display : none;
+    }
+    .section-display {
+	display: none;
+    }
+}
+
+
+.sections {
+    margin-left : 100px;
+    .section-each {
+	border-bottom : 1px solid black;
+    }
+}
+
+section {
+    padding-top : 20px;
+}
+
+.chapter-descr {
+    .chapter-detail {
+	background-color : #D1EED1;
+	border-color : #BFE7BF;
+	height : 30px;
+	line-height :30px;
+	font-weight : bold;
+	margin-top :10px;
+	width : 600px;
+	padding : 0 0 0 10px;
+	@include rounded(9px);
+	&:hover {
+	    background-color : #BFE7BF;
+	}
+    }
+}

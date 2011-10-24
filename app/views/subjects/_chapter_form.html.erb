@@ -1,17 +1,45 @@
 
-<div class="field">
-  <%= c.check_box :enabled %><br />
-  <%= c.label :enabled %>
-</div>
-<div class="field">
-  <%= c.label :chapter_title %><br />
-  <%= c.text_field :chapter_title %>
-</div>
-<div class="field">
-  <%= c.label :chapter_number %><br />
-  <%= c.text_field :chapter_number %>
-</div>
-<div class="field">
-  <%= c.label :resume %><br />
-  <%= c.text_field :resume %>
+<div class="chapter-each">
+  <div class="chapter-show-each btn primary">Show chapter</div>
+  <div class="chapter-each-display">
+    <div class="clearfix">
+      <%= c.label :enabled %>
+      <div class="input">
+	<%= c.check_box :enabled %>
+      </div>
+    </div>
+    
+    <div class="clearfix">
+      <%= c.label :chapter_title %>
+      <div class="input">
+	<%= c.text_field :chapter_title %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= c.label :chapter_number %>
+      <div class="input">
+	<%= c.text_field :chapter_number %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= c.label :resume %>
+      <div class="input">
+	<%= c.text_field :resume %>
+      </div>
+    </div>
+
+
+    <div class="sections">
+      <div class="sections-expand btn primary">
+	Expand sections
+      </div>
+      <div class="section-display" >
+	<%= c.fields_for :sections do |s| %>
+	  <%= render 'section_form', :s => s %>
+	<% end %>
+      </div>
+    </div>
+  </div>
 </div>

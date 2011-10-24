@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023230547) do
+ActiveRecord::Schema.define(:version => 20111024215612) do
 
   create_table "chapters", :force => true do |t|
     t.boolean  "enabled"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(:version => 20111023230547) do
     t.integer  "chapter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
   end
 
   add_index "sections", ["chapter_id"], :name => "index_sections_on_chapter_id"
@@ -42,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20111023230547) do
     t.text     "resume"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "small_resume"
+    t.string   "url_indice"
   end
 
 end

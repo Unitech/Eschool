@@ -1,6 +1,10 @@
 Eschool::Application.routes.draw do
   resources :subjects
 
+  scope :controller => :home, :as => :main do
+    get '/:url_indice' => :show_chapter, :as => :chapter
+  end
+  
   root :to => 'home#index'
 
   get "home/index"
