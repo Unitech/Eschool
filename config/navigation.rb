@@ -54,6 +54,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.dom_class = 'nav'
     primary.item :home, t('Home'), root_path
     primary.item :admin, t('Manage lessons'), subjects_path
+    primary.item :sandbox, t('Sandbox'), sandbox_index_path
     
     #primary.item :contact, t('Contact'),
 

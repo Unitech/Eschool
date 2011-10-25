@@ -4,7 +4,7 @@
 
 <% @subject.chapters.each do |c| %>
   <section class="chapter-descr">
-    <div class="page-header">
+    <div class="page-header-min">
       <h2>
 	<%= c.chapter_title %>
       </h2>
@@ -16,10 +16,12 @@
 	  &nbsp;
 	  <%- s.resume %>
 	</div>
-	<div class="span14 chapter-detail">
-	  <%= s.section_number %>.
-	  <%= s.section_title %>
-	</div>
+	<a href="<%= main_sections_path(params[:url_indice], c.chapter_number, s.section_number) %>">
+	  <div class="span14 chapter-detail">
+	    <%= s.section_number %>.
+	    <%= s.section_title %>
+	  </div>
+	</a>
       <% end %>
     </div>
   </section>

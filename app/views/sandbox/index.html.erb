@@ -1,0 +1,40 @@
+<% content_for :javascripts do %>
+  <%- # javascript_include_tag 'compile.js' %>
+<% end %>
+
+
+<div class="page-header">
+  <h1>Ideone Sandbox <small>API</small></h1>
+</div>
+
+<section>
+  <div class="page-header" id="title-compile">
+    <h3>Code to compile</h3>
+  </div>
+
+  <div class="row">    
+    <div class="span16">
+      <textarea id="code-source" rows="7" style="width : 930px;">
+      </textarea>
+      <br/>
+      <br/>
+      <div class="btn primary" id="submit-code">
+	Submit code
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="page-header">
+    <h3>Result</h3>
+  </div>
+
+  <div class="row">    
+    <div class="span16">
+      <textarea rows="7" cols="30" style="width : 930px;">
+      </textarea>
+    </div>
+  </div>
+</section>
+

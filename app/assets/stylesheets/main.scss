@@ -1,5 +1,8 @@
 /* Customized */
 
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/patterns";
 @import 'functions';
 
 header { padding-top : 50px; }
@@ -61,6 +64,10 @@ section {
 }
 
 .chapter-descr {
+    a {
+	text-decoration : none;
+	color : $grayDark;
+    }
     .chapter-detail {
 	background-color : #D1EED1;
 	border-color : #BFE7BF;
@@ -73,6 +80,46 @@ section {
 	@include rounded(9px);
 	&:hover {
 	    background-color : #BFE7BF;
+	}
+    }
+}
+
+.page-header-min {
+    @extend .page-header;
+    margin-bottom : 5px;
+}
+
+.show-sections {
+    .begin-exercice {
+	margin-top : 20px;
+    }
+    .video-listing {
+	//padding : 0 0 0 9px;
+	height : 200px;
+	border : 1px solid $grayLight;
+	margin : 0 -1px;
+	overflow-y : scroll;
+	@include rounded(5px);
+	
+	h3 {
+	    border-bottom : 1px dotted $grayLight;
+	    padding-left : 8px;
+	}
+	ul {
+	    padding : 13px 0 0 9px;
+	    list-style-type : none;
+	    margin : 0;
+	    
+	    li {
+		border : 1px solid $grayLight;
+		width : 220px;
+		@include rounded(5px);
+		padding : 5px;
+		margin-bottom : 7px;
+	    }
+	    li:hover {
+		background-color: $grayLight;
+	    }
 	}
     }
 }

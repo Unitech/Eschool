@@ -1,0 +1,27 @@
+<div class="show-sections">
+  <div class="page-header">
+    <h1><%= @chapter.chapter_title %> <small>class</small></h1>
+  </div>
+  <div class="row">
+    <div class="span11">
+      &nbsp;
+    </div>
+    <div class="span5">
+      <div class="video-listing">
+	<h3>Lessons listing</h3>
+	<ul>
+	  <% @chapter.sections.each do |s| %>
+	    <li><%= s.section_number %>.<%= s.section_title %></li>
+	  <% end %>
+	</ul>
+      </div>
+      <div class="begin-exercice btn primary">
+	Begin exercices
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
