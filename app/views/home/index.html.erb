@@ -11,7 +11,7 @@
     </div>
     <div class="row">
       <div class="span16">
-	<h4><%= s.resume %></h4>
+	<p><%= s.resume %></p>
 	<% if s.url_indice.present? %>
 	  <%= link_to 'Begin to learn', main_chapter_path(s.url_indice) %>
 	<% end %>
