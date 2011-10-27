@@ -1,57 +1,62 @@
-<%= form_for(@subject) do |f| %>
-  <% if @subject.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
+<div class="subject-management">
 
-      <ul>
-      <% @subject.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <%= form_for(@subject) do |f| %>
+    <% if @subject.errors.any? %>
+      <div id="error_explanation">
+	<h2><%= pluralize(@subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
+
+	<ul>
+	  <% @subject.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+	  <% end %>
+	</ul>
+      </div>
+    <% end %>
+
+    <div class="subject">
+      <div class="clearfix">
+	<%= f.label :subject_name %>
+	<div class="input">
+	  <%= f.text_field :subject_name %>
+	</div>
+      </div>
+      
+      <div class="clearfix">
+	<%= f.label :resume %>
+	<div class="input">
+	  <%= f.text_area :resume, :size => '40x10'%>
+	</div>
+      </div>
+
+      <div class="clearfix">
+	<%= f.label :small_resume %>
+	<div class="input">
+	  <%= f.text_field :small_resume %>
+	</div>
+      </div>
+      
+      <div class="clearfix">
+	<%= f.label :url_indice %>
+	<div class="input">
+	  <%= f.text_field :url_indice %>
+	</div>
+      </div>
+      <!-- !.subject -->
+    </div>
+
+    <!-- Chapter part -->
+    <div class="chapters">
+      <%= link_to_add_fields "Add chapters", f, :chapters %>
+      <%= f.fields_for :chapters do |c| %>
+	<%= render 'chapter_form', :f => c %>
+      <% end %>    
+    </div>
+    
+    
+    
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-
-  <div class="clearfix">
-    <%= f.label :subject_name %>
-    <div class="input">
-      <%= f.text_field :subject_name %>
-    </div>
-  </div>
   
-  <div class="clearfix">
-    <%= f.label :resume %>
-    <div class="input">
-      <%= f.text_area :resume, :size => '40x10'%>
-    </div>
-  </div>
-
-  <div class="clearfix">
-    <%= f.label :small_resume %>
-    <div class="input">
-      <%= f.text_field :small_resume %>
-    </div>
-  </div>
-
-  <div class="clearfix">
-    <%= f.label :url_indice %>
-    <div class="input">
-      <%= f.text_field :url_indice %>
-    </div>
-  </div>
-
-  
-  <div id="chapters-expand" class="btn primary">
-    Expand chapters
-  </div>
-  <div class="chapters">
-      <%= f.fields_for :chapters do |c| %>
-	<%= render 'chapter_form', :c => c %>
-      <% end %>
-
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

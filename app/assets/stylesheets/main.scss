@@ -23,39 +23,52 @@ background-color : #EEE; height : 80px;
     min-height : 400px;
 }
 
-#chapters-expand, .sections-expand {
-    width : 150px !important;
-    text-align : center;
-    /* @include rounded(5px); */
-    /* height : 30px; */
-    /* background-color : #CCC; */
-    /* padding : 0 0 0 20px; */
-    /* line-height : 30px; */
-    /* font-size : 17px; */
-    
-    /* &:hover { */
-    /* 	background-color :  */
-    /* } */
+
+// Subject management
+.subject-management {
+    .subject {
+	border-bottom : 1px dotted $grayLight;
+    }
 }
 
+
 .chapters {
-    margin-left : 100px;
-    padding-top : 20px;
-    width : 500px;
-    display : none;
-    .chapter-each-display {
-	display : none;
+    
+    .add-field-button {
+	float : right;
     }
-    .section-display {
-	display: none;
+    .chapter-each {
+
+	padding-top : 20px;
+	padding-bottom : 20px;
+	border-bottom : 1px dotted $grayLight;
+
+	.chapter-each-display {
+	    padding-top : 10px;
+	    display : none;
+	    //margin-left : 50px;
+	    .remove-chapter-link {
+		
+	    }	    
+	}
     }
 }
+
 
 
 .sections {
     margin-left : 100px;
     .section-each {
-	border-bottom : 1px solid black;
+	padding-top : 10px;
+	.section-show-each {
+	    margin-left : 100px;
+	}
+	.section-each-display {
+	    padding-top : 20px;
+	    display : none;
+	    margin-left : 50px;
+
+	}
     }
 }
 

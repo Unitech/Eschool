@@ -1,42 +1,51 @@
+
 <div class="section-each">
-  <div class="clearfix">
-    <%= s.label :enabled %>
-    <div class="input">
-      <%= s.check_box :enabled %>
-    </div>
-  </div>
+  <div class="section-show-each btn primary" onclick="expand_section(this);">Show section</div>
+  <div class="section-each-display">
     
-  <div class="clearfix">
-    <%= s.label :section_title %>
-    <div class="input">
-      <%= s.text_field :section_title %>
+    <!-- <div class="clearfix"> -->
+    <!--   <%= f.label :enabled %> -->
+    <!--   <div class="input"> -->
+    <!-- 	<%= f.check_box :enabled %> -->
+    <!--   </div> -->
+    <!-- </div> -->
+    
+    <div class="clearfix">
+      <%= f.label :section_title %>
+      <div class="input">
+	<%= f.text_field :section_title %>
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <%= s.label :section_number %>
-    <div class="input">
-      <%= s.text_field :section_number %>
+    <div class="clearfix">
+      <%= f.label :section_number %>
+      <div class="input">
+	<%= f.text_field :section_number %>
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <%= s.label :resume %>
-    <div class="input">
-      <%= s.text_field :resume %>
+    <div class="clearfix">
+      <%= f.label :resume %>
+      <div class="input">
+	<%= f.text_field :resume %>
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <%= s.label :video %>
-    <div class="input">
-      <% if s.object.new_record? %>
-	lol
-      <% end %>
-      <%= s.file_field :video %>
-      
+    <div class="clearfix">
+      <%= f.label :video %>
+      <div class="input">
+	<%= f.file_field :video %>
+	<% if f.object.new_record? %>
+	  New record
+	<% end %>
+      </div>
     </div>
-  </div>
 
+    <div class="clearfix">
+      <!-- Link to remove this chapter -->
+      <%= link_to_remove_fields "Remove section", f %>
+    </div>
+
+  </div>
 
 </div>
