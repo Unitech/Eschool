@@ -1,3 +1,8 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'subject.js' %>
+<% end %>
+
+
 <div class="subject-management">
 
   <%= form_for(@subject) do |f| %>
@@ -13,40 +18,59 @@
       </div>
     <% end %>
 
-    <div class="subject">
-      <div class="clearfix">
-	<%= f.label :subject_name %>
-	<div class="input">
-	  <%= f.text_field :subject_name %>
+    <div class="subject row">
+
+      <!-- Left part --> 
+      <div class="span6">
+	<div class="clearfix">
+	  <%= f.label :subject_name %>
+	  <div class="input">
+	    <%= f.text_field :subject_name %>
+	  </div>
 	</div>
-      </div>
-      
-      <div class="clearfix">
-	<%= f.label :resume %>
-	<div class="input">
-	  <%= f.text_area :resume, :size => '40x10'%>
+	
+	<div class="clearfix">
+	  <%= f.label :resume %>
+	  <div class="input">
+	    <%= f.text_area :resume, :size => '40x10'%>
+	  </div>
 	</div>
       </div>
 
-      <div class="clearfix">
-	<%= f.label :small_resume %>
-	<div class="input">
-	  <%= f.text_field :small_resume %>
+      <!-- Right part --> 
+      <div class="span6">
+	<div class="clearfix">
+	  <%= f.label :small_resume %>
+	  <div class="input">
+	    <%= f.text_field :small_resume %>
+	  </div>
 	</div>
+	
+	<div class="clearfix">
+	  <%= f.label :url_indice %>
+	  <div class="input">
+	    <%= f.text_field :url_indice %>
+	  </div>
+	</div>	
+
+	<% unless f.object.new_record? %>
+	  <br/ >
+	  <div class="clearfix">
+	    <div class="input">
+	      Chapters number : 
+	      <%= @subject.chapters.count %>
+	    </div>
+	  </div>
+	<% end %>
+
       </div>
       
-      <div class="clearfix">
-	<%= f.label :url_indice %>
-	<div class="input">
-	  <%= f.text_field :url_indice %>
-	</div>
-      </div>
       <!-- !.subject -->
     </div>
 
     <!-- Chapter part -->
     <div class="chapters">
-      <%= link_to_add_fields "Add chapters", f, :chapters %>
+      <%= link_to_add_fields "Add chapters", f, :chapters, 'add-chapters-button' %>
       <%= f.fields_for :chapters do |c| %>
 	<%= render 'chapter_form', :f => c %>
       <% end %>    

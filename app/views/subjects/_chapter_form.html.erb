@@ -1,7 +1,18 @@
 
 <!-- Inherit from .chapters -->
 <div class="chapter-each">
-  <div class="chapter-show-each btn primary" onclick="expand_chapter(this);">Show chapter</div>
+  <div class="chapter-show-each" onclick="expand_chapter(this);">
+    <div class="btn primary">
+      Show chapter
+    </div>
+    <% if f.object.new_record? %>
+      &nbsp;(New chapter)
+    <% else %>
+      &nbsp;&nbsp;&nbsp;<%= f.object.chapter_number.to_s + '. ' + f.object.chapter_title %>
+    <% end %>
+
+  </div>
+
   <div class="chapter-each-display">
     <!-- <div class="clearfix"> -->
     <!--   <%= f.label :enabled %> -->
@@ -17,13 +28,9 @@
       </div>
     </div>
 
-    <div class="clearfix">
-      <%= f.label :chapter_number %>
-      <div class="input">
-	<%= f.text_field :chapter_number %>
-      </div>
-    </div>
-
+    <!-- For URL mapping -->
+    <%= f.hidden_field :chapter_number, :class => 'chapter_number_relative_id' %>
+	
     <div class="clearfix">
       <%= f.label :resume %>
       <div class="input">
@@ -33,12 +40,12 @@
     
     <div class="clearfix remove-chapter-link">
       <!-- Link to remove this chapter -->
-      <%= link_to_remove_fields "Remove chapter", f %>
+      <%= link_to_remove_fields "X Remove chapter", f %>
     </div>
     
-
+    <h3 class="sections-chapter-title">Sections</h3>
     <div class="sections">
-      <%= link_to_add_fields "Add sections", f, :sections %>
+      <%= link_to_add_fields "Add sections", f, :sections, 'add-sections-button' %>
       <%= f.fields_for :sections do |s| %>
 	<%= render 'section_form', :f => s %>
       <% end %>

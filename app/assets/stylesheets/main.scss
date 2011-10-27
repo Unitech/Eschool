@@ -5,16 +5,20 @@
 @import "bootstrap/patterns";
 @import 'functions';
 
-header { padding-top : 50px; }
+header { 
+    padding-top : 50px; 
+}
+
 footer { 
-background-color: #EEE;
-min-width: 940px;
-padding: 30px 0;
-text-shadow: 0 1px 0 white;
-border-top: 1px solid #E5E5E5;
--webkit-box-shadow: inset 0 5px 15px rgba(0, 0, 0, .025);
--moz-box-shadow: inset 0 5px 15px rgba(0, 0, 0, .025);
-background-color : #EEE; height : 80px;
+    background-color: #EEE;
+    min-width: 940px;
+    padding: 30px 0;
+    text-shadow: 0 1px 0 white;
+    border-top: 1px solid #E5E5E5;
+    -webkit-box-shadow: inset 0 5px 15px rgba(0, 0, 0, .025);
+    -moz-box-shadow: inset 0 5px 15px rgba(0, 0, 0, .025);
+    background-color : #EEE; 
+    height : 80px;
 }
 
 
@@ -22,6 +26,52 @@ background-color : #EEE; height : 80px;
     margin-top : 20px;
     min-height : 400px;
 }
+
+section {
+    padding-top : 20px;
+}
+
+// Page
+
+.main-page {
+    .main-page-subjects-section {
+	cursor : pointer;
+    }
+}
+
+.chapters-page {
+    section {
+	padding-top : 0px;
+	margin-bottom : 15px;
+	padding : 10px 10px 20px 10px;
+	@include rounded(5px);
+	&:hover {
+	    background-color : $grayLightest;
+	}
+    }
+
+    .chapter-descr {
+	a {
+	    text-decoration : none;
+	    color : $grayDark;
+	}
+	.chapter-detail {
+	    background-color : #D1EED1;
+	    border-color : #BFE7BF;
+	    height : 30px;
+	    line-height :30px;
+	    font-weight : bold;
+	    margin-top :10px;
+	    width : 700px;
+	    padding : 0 0 0 10px;
+	    @include rounded(9px);
+	    &:hover {
+		background-color : #BFE7BF;
+	    }
+	}
+    }   
+}
+
 
 
 // Subject management
@@ -31,33 +81,51 @@ background-color : #EEE; height : 80px;
     }
 }
 
-
 .chapters {
-    
-    .add-field-button {
+    .add-chapters-button {
 	float : right;
+	margin-top : 20px;
+	margin-right : 10px;
+	font-weight : bold;
+	@extend .alert-message;
     }
+    
     .chapter-each {
 
 	padding-top : 20px;
-	padding-bottom : 20px;
+	padding-bottom : 10px;
 	border-bottom : 1px dotted $grayLight;
 
 	.chapter-each-display {
-	    padding-top : 10px;
+	    padding-top : 20px;
 	    display : none;
 	    //margin-left : 50px;
-	    .remove-chapter-link {
-		
-	    }	    
+
 	}
+	.chapter-show-each {
+	    min-height : 40px;
+	}
+    }
+    .sections-chapter-title {
+	padding-bottom : 5px;
+	border-bottom : 1px dotted $grayLight;
+
     }
 }
 
-
-
 .sections {
-    margin-left : 100px;
+    margin-left : 30px;
+    min-height : 30px;
+    .remove-chapter-link {
+	margin-left : 20px;
+    }
+    .add-sections-button {
+	float : right;
+	margin-top : 10px;
+	margin-right : 10px;
+	font-weight : bold;
+	@extend .alert-message;	
+    }
     .section-each {
 	padding-top : 10px;
 	.section-show-each {
@@ -66,33 +134,8 @@ background-color : #EEE; height : 80px;
 	.section-each-display {
 	    padding-top : 20px;
 	    display : none;
-	    margin-left : 50px;
+	    margin-left : 70px;
 
-	}
-    }
-}
-
-section {
-    padding-top : 20px;
-}
-
-.chapter-descr {
-    a {
-	text-decoration : none;
-	color : $grayDark;
-    }
-    .chapter-detail {
-	background-color : #D1EED1;
-	border-color : #BFE7BF;
-	height : 30px;
-	line-height :30px;
-	font-weight : bold;
-	margin-top :10px;
-	width : 600px;
-	padding : 0 0 0 10px;
-	@include rounded(9px);
-	&:hover {
-	    background-color : #BFE7BF;
 	}
     }
 }
@@ -103,35 +146,42 @@ section {
 }
 
 .show-sections {
-    .begin-exercice {
-	margin-top : 20px;
+    .video-js-box {
+	margin-top : 10px;
     }
+    .begin-exercice {
+	margin-top : 10px;
+    }
+
     .video-listing {
 	//padding : 0 0 0 9px;
 	height : 200px;
 	border : 1px solid $grayLight;
 	margin : 0 -1px;
 	overflow-y : scroll;
-	@include rounded(5px);
+	@include rounded(3px);
 	
-	h3 {
-	    border-bottom : 1px dotted $grayLight;
-	    padding-left : 8px;
-	}
 	ul {
-	    padding : 13px 0 0 9px;
+	    padding : 6px 0 0 6px;
 	    list-style-type : none;
 	    margin : 0;
 	    
+	    .selected {
+		background-color : $grayLight;
+		font-weight : bold;
+	    }
 	    li {
+		color : black;
 		border : 1px solid $grayLight;
-		width : 220px;
-		@include rounded(5px);
+		width : 93%;
+		@include rounded(3px);
 		padding : 5px;
-		margin-bottom : 7px;
+		margin-bottom : 5px;
+		
 	    }
 	    li:hover {
 		background-color: $grayLight;
+		cursor : pointer;
 	    }
 	}
     }

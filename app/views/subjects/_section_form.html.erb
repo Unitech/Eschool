@@ -1,6 +1,15 @@
 
 <div class="section-each">
-  <div class="section-show-each btn primary" onclick="expand_section(this);">Show section</div>
+  <div class="section-show-each" onclick="expand_section(this);">
+    <div class="btn primary">
+      Show section
+    </div>
+    <% if f.object.new_record? %>
+      &nbsp;&nbsp;&nbsp;(New section)
+    <% else %>
+      &nbsp;&nbsp;&nbsp;<%= f.object.section_number.to_s + '. ' + f.object.section_title %>
+    <% end %>
+  </div>
   <div class="section-each-display">
     
     <!-- <div class="clearfix"> -->
@@ -17,12 +26,8 @@
       </div>
     </div>
 
-    <div class="clearfix">
-      <%= f.label :section_number %>
-      <div class="input">
-	<%= f.text_field :section_number %>
-      </div>
-    </div>
+    <!-- For url mapping -->
+    <%= f.hidden_field :section_number, :class => 'section_number_relative_id' %>
 
     <div class="clearfix">
       <%= f.label :resume %>
@@ -34,9 +39,11 @@
     <div class="clearfix">
       <%= f.label :video %>
       <div class="input">
-	<%= f.file_field :video %>
-	<% if f.object.new_record? %>
-	  New record
+	<%= f.file_field :video %> 
+	<br/>
+	<br/>
+	<% if f.object.new_record? == false and f.object.video.present? %>
+	  Vidéo already present : <strong><%= f.object.video.url.split('/')[-1] %></strong>
 	<% end %>
       </div>
     </div>

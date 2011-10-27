@@ -1,28 +1,31 @@
-<div class="page-header">
-  <h1><%= @subject.subject_name %> <small>class</small></h1>
-</div>
 
-<% @subject.chapters.each do |c| %>
-  <section class="chapter-descr">
-    <div class="page-header-min">
-      <h2>
-	<%= c.chapter_title %>
-      </h2>
-    </div>
-    <div class="row">
-      
-      <% c.sections.each do |s| %>
-	<div class="span3">
-	  &nbsp;
-	  <%- s.resume %>
-	</div>
-	<a href="<%= main_sections_path(params[:url_indice], c.chapter_number, s.section_number) %>">
-	  <div class="span14 chapter-detail">
-	    <%= s.section_number %>.
-	    <%= s.section_title %>
+<div class="chapters-page">
+  <div class="page-header">
+    <h1><%= @subject.subject_name %> <small>class</small></h1>
+  </div>
+
+  <% @subject.chapters.each do |c| %>
+    <section class="chapter-descr">
+      <div class="page-header-min">
+	<h2>
+	  <%= c.chapter_number.to_s + '. ' + c.chapter_title %>
+	</h2>
+      </div>
+      <div class="row">
+	
+	<% c.sections.each do |s| %>
+	  <div class="span3">
+	    &nbsp;
+	    <%- s.resume %>
 	  </div>
-	</a>
-      <% end %>
-    </div>
-  </section>
-<% end %>
+	  <a href="<%= main_sections_path(params[:url_indice], c.chapter_number, s.section_number) %>">
+	    <div class="span14 chapter-detail">
+	      <%= s.section_number %>.
+	      <%= s.section_title %>
+	    </div>
+	  </a>
+	<% end %>
+      </div>
+    </section>
+  <% end %>
+</div>

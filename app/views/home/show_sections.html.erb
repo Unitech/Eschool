@@ -1,20 +1,45 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'plugins/video.js' %>
+  <%= javascript_include_tag 'show_sections.js' %>
+<% end %>
+
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag 'plugins/video-js.css' %>
+<% end %>
+
 <div class="show-sections">
   <div class="page-header">
-    <h1><%= @chapter.chapter_title %> <small>class</small></h1>
+    <h1><%= @section.section_number.to_s + '. ' + @section.section_title %> <small>&nbsp; Chapter <%= @chapter.chapter_number.to_s + ' - ' + @chapter.chapter_title + ' - ' + @subject.subject_name %> class</small></h1>
   </div>
   <div class="row">
     <div class="span11">
-      &nbsp;
+
+      <div class="video-js-box"> 
+	<video id="example_video_1" class="video-js vjs-default-skin" controls="controls" preload="auto" width="640" height="450">
+	       <!-- poster="http://localhost:3000/public/Simple-wallpaper-1-1366x768.jpg"> -->
+	  <source src="<%= @section.video.url %>" type='video/mp4' />
+	  <!-- <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' /> -->
+	</video>
+      </div>
     </div>
+
+
+    <!-- Video listing -->
     <div class="span5">
+      <h3>Lessons listing</h3>
       <div class="video-listing">
-	<h3>Lessons listing</h3>
+	
 	<ul>
 	  <% @chapter.sections.each do |s| %>
-	    <li><%= s.section_number %>.<%= s.section_title %></li>
+	    
+	    <li class="<%= s == @section ? 'selected' : '' %>" 
+		onclick="window.location = '<%= main_sections_path(params[:url_indice], @chapter.chapter_number, s.section_number) %>'">
+		<%= s.section_number %>. <%= s.section_title %>
+	    </li>
 	  <% end %>
 	</ul>
       </div>
+      
       <div class="begin-exercice btn primary">
 	Begin exercices
       </div>

@@ -11,8 +11,9 @@ class HomeController < ApplicationController
   end
   
   def show_sections
-    # @sections = Chapter.first(:conditions => ['chapter_number = ?', params[:chapter_number]])
-    @chapter = Subject.where(:url_indice => params[:url_indice]).first.chapters.where(:chapter_number => params[:chapter_nb]).first
+    @subject = Subject.first(:conditions => ['url_indice = ?', params[:url_indice]], :include => [:chapters])
+    @chapter = @subject.chapters.where(:chapter_number => params[:chapter_nb]).first
+    @section = @chapter.sections.where(:section_number => params[:section_nb]).first
   end
 
   def about
