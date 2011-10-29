@@ -1,12 +1,19 @@
 
 $().ready(function() {
-    console.log('ready');
+    window.console ? console.log('ready') : '';
     $('#submit-code').click(function() {
-	var data = {'code' : $('#code-source').val(), 'authenticity_token' : window._token};
+
+	var data = {
+	    language_indice : 0,
+	    'code' : $('#code-source').val(), 
+	    //'authenticity_token' : window._token
+	    params : false
+	};
+
 	$.ajax({
 	    data : data,
 	    type : 'POST',
-	    url : '/sandbox/compile',
+	    url : 'http://lvh.me:3001/api/compile',
 	    beforeSend : function() {
 		$('#title-compile').append('<span class="label important">Compiling...</span>');
 	    },
