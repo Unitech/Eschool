@@ -19,7 +19,10 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql2  # Rails 3.x uses the mysql2 adapter
+  database: eschool_dev
   pool: 5
-  timeout: 5000
+  username: root
+  password: 8f79feb0703496ed6781858cee844e3c
+
+
