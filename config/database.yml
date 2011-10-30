@@ -23,7 +23,8 @@ production:
   database: eschool_dev
   pool: 5
   username: root
-  password: <%= ENV['PASS_ESCHOOL'] %>
+  password: <%= begin IO.read("/var/pss") rescue "" end %>
+
 
 
 
