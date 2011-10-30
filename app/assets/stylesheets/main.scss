@@ -42,11 +42,12 @@ section {
 .chapters-page {
     section {
 	padding-top : 0px;
-	margin-bottom : 15px;
-	padding : 10px 10px 20px 10px;
+	/* margin-bottom : 15px; */
+	padding : 4px 0 10px 5px;
+	/* padding : 10px 10px 20px 10px; */
 	@include rounded(5px);
 	&:hover {
-	    background-color : $grayLightest;
+	    //background-color : $grayLightest;
 	}
     }
 
@@ -56,17 +57,33 @@ section {
 	    color : $grayDark;
 	}
 	.chapter-detail {
-	    background-color : #D1EED1;
-	    border-color : #BFE7BF;
-	    height : 30px;
-	    line-height :30px;
+	    background-color : #F5F5F5;
+	    border : 1px solid #DDD;
+	    @include rounded(4px);
+	    height : 27px;
+	    line-height : 27px;
 	    font-weight : bold;
 	    margin-top :10px;
 	    width : 700px;
 	    padding : 0 0 0 10px;
-	    @include rounded(9px);
+	    @include transition(.3s);
+	    .text-chapter {
+		display : inline-block;
+		padding-left : 3px;
+	    }
+	    .play-icon {
+		float : right;
+		padding-top : 4px;
+		padding-right : 10px;
+	    }
 	    &:hover {
-		background-color : #BFE7BF;
+		outline: 0;
+		border-color: rgba(82, 168, 236, 0.8);
+		-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+		-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+
+		//background-color : #BFE7BF;
 	    }
 	}
     }   
@@ -158,7 +175,7 @@ section {
 	height : 200px;
 	border : 1px solid $grayLight;
 	margin : 0 -1px;
-	overflow-y : scroll;
+	overflow-y : auto;
 	@include rounded(3px);
 	
 	ul {
@@ -167,20 +184,22 @@ section {
 	    margin : 0;
 	    
 	    .selected {
-		background-color : $grayLight;
-		font-weight : bold;
+		background-color : #222;
+		color : white;
 	    }
 	    li {
 		color : black;
-		border : 1px solid $grayLight;
+		border : 1px solid #222;
 		width : 93%;
 		@include rounded(3px);
 		padding : 5px;
 		margin-bottom : 5px;
-		
+		@include transition(.3s);
+
 	    }
 	    li:hover {
-		background-color: $grayLight;
+		background-color: #222;
+		color : #BFBFBF;
 		cursor : pointer;
 	    }
 	}

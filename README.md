@@ -1,11 +1,14 @@
 # ESchool
 
-A LMS for the Epitech Web Lab
+A learning management system for the Epitech Web Lab
 
 ## Todo
 
-- on chapter view change click with title click
+- Add editor IDE like for exercices
+- Add auth system for Nurse API (nurse API url must be a subdomain of Eschool)
+- Add auth (Devise) for Registration on Eschool
 
 ## Ideas
 
 - create a personnal wiki (joined with the user account)
+- http://jquerymobile.com/demos/1.0a4.1/#docs/about/../../

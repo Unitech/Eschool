@@ -20,8 +20,13 @@
 	  </div>
 	  <a href="<%= main_sections_path(params[:url_indice], c.chapter_number, s.section_number) %>">
 	    <div class="span14 chapter-detail">
-	      <%= s.section_number %>.
-	      <%= s.section_title %>
+	      <div class="text-chapter">
+		<%= s.section_number %>.
+		<%= s.section_title %>
+	      </div>
+	      <div class="play-icon">
+		<%= image_tag 'player_play.png' %>
+	      </div>
 	    </div>
 	  </a>
 	<% end %>

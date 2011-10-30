@@ -1,10 +1,17 @@
 
 
+@mixin transition($amount) {
+    -webkit-transition: all $amount ease-out;
+    -moz-transition: all $amount ease-out;
+    -o-transition: all $amount ease-out;
+    transition: all $amount ease-out;
+}
+
   
 @mixin rounded($amount) {
     -moz-border-radius: $amount;
     -webkit-border-radius: $amount;
-    -khtml-border-radius: 4px; 
+    -khtml-border-radius: $amount; 
     border-radius: $amount;
 }
 
