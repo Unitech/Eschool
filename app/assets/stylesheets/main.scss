@@ -171,10 +171,8 @@ section {
     }
 
     .video-listing {
-	//padding : 0 0 0 9px;
 	height : 200px;
-	border : 1px solid $grayLight;
-	margin : 0 -1px;
+	border : 1px solid #DDD;
 	overflow-y : auto;
 	@include rounded(3px);
 	
@@ -184,22 +182,26 @@ section {
 	    margin : 0;
 	    
 	    .selected {
-		background-color : #222;
-		color : white;
+		outline: 0;
+		border-color: rgba(82, 168, 236, 0.8);
+		-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+		-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+		background-color : #F5F5F5;
 	    }
 	    li {
-		color : black;
-		border : 1px solid #222;
+		color : #404040;
+		font-weight : bold;
+		border : 1px solid #DDD;
 		width : 93%;
-		@include rounded(3px);
 		padding : 5px;
 		margin-bottom : 5px;
-		@include transition(.3s);
 
+		@include rounded(3px);
+		@include transition(.3s);
 	    }
 	    li:hover {
-		background-color: #222;
-		color : #BFBFBF;
+		@extend .selected;
 		cursor : pointer;
 	    }
 	}
