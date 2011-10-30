@@ -23,6 +23,7 @@ production:
   database: eschool_dev
   pool: 5
   username: root
-  password: 8f79feb0703496ed6781858cee844e3c
+  password: <%= ENV['PASS_ESCHOOL'] %>
+
 
 
