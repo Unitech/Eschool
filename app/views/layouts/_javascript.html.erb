@@ -5,10 +5,6 @@
 <%= yield :javascripts %>
 
 <%- # Fix any <img> or .png_bg background-images -%>
-<!--[if lt IE 7 ]>
-<%= javascript_include_tag 'dd_belatedpng.js' %>
-<%= javascript_tag %{DD_belatedPNG.fix('img, .png_bg')} %>
-<![endif]-->
 
 <%- # asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet -%>
 <%- # change the UA-XXXXX-X to be your site's ID -%>
