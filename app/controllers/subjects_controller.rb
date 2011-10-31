@@ -1,4 +1,6 @@
 class SubjectsController < ApplicationController
+  before_filter :admin_logged
+  
   # GET /subjects
   # GET /subjects.json
   def index

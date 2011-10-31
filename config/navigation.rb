@@ -53,8 +53,20 @@ SimpleNavigation::Configuration.run do |navigation|
     # Add an item which has a sub navigation (same params, but with block)
     primary.dom_class = 'nav'
     primary.item :home, t('Home'), root_path
-    primary.item :admin, t('Manage lessons'), subjects_path
     primary.item :sandbox, t('Sandbox'), sandbox_index_path
+
+    primary.item :admin, t('Manage lessons'), subjects_path, 
+                 :if => Proc.new { current_user.present? and current_user.admin? }
+    
+    primary.item :login, t('Login'), new_user_session_path, 
+                 :if => Proc.new { current_user.nil? }
+
+    primary.item :logout, t('Logout'), new_user_session_path, 
+                 :if => Proc.new { current_user.present? }
+
+    #primary.item :login, 'Login', login_path, :
+
+   
     
     #primary.item :contact, t('Contact'),
 

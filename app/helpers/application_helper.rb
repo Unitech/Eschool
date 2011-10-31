@@ -8,13 +8,6 @@ module ApplicationHelper
     content_tag(:div, dt, :id => 'markdown')
   end
   
-  def admin_logged?
-    if current_user.present? and current_user.admin == true
-      return true
-    end
-    return false
-  end
-
   def link_to_remove_fields(name, f)
     f.hidden_field(:_destroy) + link_to_function(name, "remove_part(this)")
   end
